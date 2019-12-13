@@ -1,0 +1,28 @@
+{
+  "name": "awpbot",
+  "version": "1.0.0",
+  "description": "A Telegram bot to Scrap reddit for Awesome Wallpapers and post it on Telegram Channel",
+  "main": "app.js",
+  "dependencies": {
+    "mongoose": "^5.8.1",
+    "npm": "^6.4.1",
+    "snoowrap": "^1.15.2",
+    "telegraf": "^3.34.1"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neelgeek/AWPbot.git"
+  },
+  "author": "Neel Bhave",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neelgeek/AWPbot/issues"
+  },
+  "homepage": "https://github.com/neelgeek/AWPbot#readme"
+}
