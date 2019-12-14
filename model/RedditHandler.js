@@ -11,7 +11,7 @@ class redditFetcher {
         });
     }
 
-    getTopPost() {
+    GetTopPost() {
         var topPost = null
         return this.redditAPI.getSubreddit('wallpaper').getTop({
             count: 1,
@@ -21,7 +21,16 @@ class redditFetcher {
         }).catch(e => {
             throw new Error(e.message());
         });
+    }
 
+    GetFormattedPost() {
+        return this.GetTopPost().then(post => {
+            post =
+                `*${post.title}*
+
+${post.url}`
+            return post
+        })
     }
 }
 module.exports = redditFetcher;
