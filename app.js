@@ -12,6 +12,7 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds0426
 
 // Reddit Fetcher 
 var rf = new redditFetcher(process.env.SECERT, process.env.REFRESH)
-    // Telegram Bot
+
+// Telegram Bot
 var bot = new AWPBot(process.env.BOT_TOKEN, rf)
-    // bot.PostUpdate("Hello,Testing");
+bot.PostUpdate();
