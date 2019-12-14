@@ -28,7 +28,9 @@ class redditFetcher {
             post =
                 `*${post.title}*
 
-${post.url}`
+${post.url}
+
+[Rate the Channel](https://t.me/dailychannelsbot?start=awesomewallp)`
             return post
         })
     }
