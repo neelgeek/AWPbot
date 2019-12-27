@@ -1,5 +1,6 @@
 const sw = require('snoowrap')
 const fs = require('fs');
+var moment = require('moment');
 
 class redditFetcher {
     constructor(clientSecert, refreshToken) {
