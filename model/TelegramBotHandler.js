@@ -25,11 +25,14 @@ class AWPBot {
     }
 
     PostUpdate() {
-        this.userModel.find({}, { _id: 0, chatId: 1 }).then(result => {
-            this.redditHandler.GetFormattedPost().then(post => {
+        return this.userModel.find({}, { _id: 0, chatId: 1 }).then(result => {
+            return this.redditHandler.GetFormattedPost().then(post => {
+                var promises = Array();
                 result.forEach(user => {
-                    this.bot.telegram.sendMessage(user.chatId, post, { parse_mode: 'Markdown' });
+                    promises.push(this.bot.telegram.sendMessage(user.chatId, post, { parse_mode: 'Markdown' }));
                 });
+
+                return Promise.all(promises);
             })
 
         })
