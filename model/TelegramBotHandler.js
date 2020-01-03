@@ -33,8 +33,12 @@ class AWPBot {
                 });
 
                 return Promise.all(promises);
+            }).catch(err => {
+                throw new Error(err.message);
             })
 
+        }).catch(err => {
+            throw new Error(err.message)
         })
     }
 

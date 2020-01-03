@@ -62,11 +62,13 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds0426
     cron.schedule('0 12 * * *', function() {
         bot.PostUpdate().then(res => {
             console.log("Post created !")
+        }).catch(err => {
+            console.error(err.message);
         });
     })
 
 }).catch(err => {
-    throw new Error(e.message());
+    console.error(e.message());
 })
 
 module.exports = app;
