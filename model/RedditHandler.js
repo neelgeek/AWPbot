@@ -14,7 +14,7 @@ class redditFetcher {
 
     GetTopPost() {
         var topPost = null
-        return this.redditAPI.getSubreddit('wallpaper').getTop({
+        return this.redditAPI.getSubreddit('mobi').getTop({
             count: 1,
             time: "day"
         }).then(r => {
@@ -31,7 +31,7 @@ class redditFetcher {
 
 ${post.url}
 
-[Rate the Channel](https://t.me/dailychannelsbot?start=awesomewallp)`
+[Rate the Channel](https://t.me/dailychannelsbot?start=wallpapers_daily)`
             return post
         })
     }

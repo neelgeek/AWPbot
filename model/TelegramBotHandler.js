@@ -22,6 +22,8 @@ class AWPBot {
                 ctx.reply(`Some Error occured while registering you,please try again`);
             })
         })
+
+
     }
 
     PostUpdate() {
