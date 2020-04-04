@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.locals.error = req.app.get('env') === 'production' ? err : {};
 
     // render the error page
     res.status(err.status || 500);
@@ -56,8 +56,8 @@ var rf = new redditFetcher(process.env.SECERT, process.env.REFRESH)
 // Telegram Bot
 var bot = new AWPBot(process.env.BOT_TOKEN, rf)
 
-
-mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds042607.mlab.com:42607/awp_users`, { useNewUrlParser: true, useUnifiedTopology: true }).then(c => {
+// mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-9yxkj.mongodb.net/test?retryWrites=true&w=majority
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds042607.mlab.com:42607/awp_users`, { useNewUrlParser: true }).then(c => {
     console.log("Connected to Database");
     cron.schedule('0 12 * * *', function() {
         bot.PostUpdate().then(res => {
@@ -68,7 +68,7 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds0426
     })
 
 }).catch(err => {
-    console.error(e.message());
+    console.error(err.message);
 })
 
 module.exports = app;
