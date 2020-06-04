@@ -14,7 +14,7 @@ class redditFetcher {
 
     GetTopPost() {
         var topPost = null
-        return this.redditAPI.getSubreddit('iWallpaper').getTop({
+        return this.redditAPI.getSubreddit('wallpaper').getTop({
             count: 1,
             time: "day"
         }).then(r => {

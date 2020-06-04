@@ -56,7 +56,7 @@ var rf = new redditFetcher(process.env.SECERT, process.env.REFRESH)
 // Telegram Bot
 var bot = new AWPBot(process.env.BOT_TOKEN, rf)
 
-// mongodb + srv: //heroku:Neel_1997@awp-users-9yxkj.azure.mongodb.net/awp_users?authSource=admin&replicaSet=awp-users-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true
+
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@awp-users-9yxkj.azure.mongodb.net/awp_users?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true }).then(c => {
     console.log("Connected to Database");
     cron.schedule('0 12 * * *', function() {
