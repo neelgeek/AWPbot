@@ -13,6 +13,7 @@ RUN echo 'crond' > /boot.sh
 # where available (npm@5+)
 
 COPY package*.json ./
+COPY .env ./
 
 RUN npm install --production
 

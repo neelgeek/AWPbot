@@ -3,18 +3,20 @@ const fs = require('fs');
 var moment = require('moment');
 
 class redditFetcher {
-    constructor(clientSecert, refreshToken) {
+    
+    constructor(clientSecert, refreshToken, subreddit) {
         this.redditAPI = new sw({
             userAgent: "Its a Telegram Bot that lists the best wallpaper images from different subreddits on reddit and posts it on a Telegram channel",
             clientId: '0In8W9N-YgEXvg',
             clientSecret: clientSecert,
             refreshToken: refreshToken
         });
+        this.subreddit = subreddit;
     }
 
     GetTopPost() {
         var topPost = null
-        return this.redditAPI.getSubreddit('wallpaper').getTop({
+        return this.redditAPI.getSubreddit(this.subreddit).getTop({
             count: 1,
             time: "day"
         }).then(r => {
